@@ -13,5 +13,17 @@
 	<input type="submit" value="Post a Message">
 </form>
 <% @messages.each do |message| %>
+<h3><%= message.user.username %> - <%= message.created_at.strftime("%B %e, %Y") %></h3>
 <p><%= message.message %></p>
+<h2>Comments</h2>
+<% @comments.each do |comment| %>
+<% if comment.message_id == message.id %>
+<p><%= comment.comment %></p>
+<% end %>
+<% end %>
+<form action="/messages/<%= message.id %>/comments/new" method="post">
+	<input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+	<textarea name="comment"></textarea>
+	<input type="submit" value="Post a Comment">
+</form>
 <% end %>

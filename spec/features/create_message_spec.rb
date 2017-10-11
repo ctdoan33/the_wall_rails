@@ -20,6 +20,6 @@ feature "user submits a message" do
 		fill_in "message", with: "Mymessages"
 		click_button "Post a Message"
 		expect(current_path).to eq("/messages")
-		expect(page).to have_content "Message  is too short (minimum is 11 characters)"
+		expect(page).to have_content "Message is too short (minimum is 11 characters)"
 	end
 end

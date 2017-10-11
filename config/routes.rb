@@ -4,6 +4,7 @@ Rails.application.routes.draw do
 	get "users/logout" => "users#logout"
 	get "messages" => "messages#index"
 	post "messages/new" => "messages#create"
+	post "messages/:id/comments/new" => "messages#create_comment"
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
